@@ -50,11 +50,11 @@ None was run. Next live action after setup: create the planning branch from late
 explicitly transition AGENTS.md to live-workshop mode, and invoke `$speckit-constitution`.
 Later each assigned implementation task gets its own ID, branch, PR, and human merge.
 
-## Supabase: project verified; accounts and connection pending
+## Supabase: project, connection, and confirmed accounts verified
 
 Dedicated project student-resource-hub verified in ibrahim97zak's Org (Free), region ap-northeast-1 (Tokyo), project ref zsenrarawfgnvlulvvbo. Database password was set privately by the instructor.
-Dashboard access and project identity are verified. Email authentication is enabled. Actual API connection and account sign-in/out are NOT VERIFIED.
-Prepared account emails: lina@example.com and omar@example.com. Neither account is verified or asserted created.
+Dashboard access and project identity are verified. Email authentication is enabled. Auth settings endpoint returned HTTP 200 using the publishable key and confirmed email provider enabled. Account password sign-in/out are NOT VERIFIED.
+Prepared account emails: lina@example.com and omar@example.com. Both accounts were verified in the authenticated dashboard with Confirmed at timestamps (Lina 00:26, Omar 00:27 on 2026-10-20). Neither had signed in at inspection.
 
 Manual continuation if dashboard access remains unavailable:
 1. Sign in at https://supabase.com/dashboard and select the intended Free organization.
@@ -62,7 +62,7 @@ Manual continuation if dashboard access remains unavailable:
 3. Under Authentication > Sign In / Providers, verify Email/password is enabled.
 4. Under Authentication > Users > Add user > Create new user, create each demo email with its own strong password entered privately; enable Auto Confirm User. Use Create, not Invite, to avoid email delivery.
 5. In the project's Connect/API settings, copy the project URL and publishable key into ignored `.env.local`, using only VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY as shown in `.env.example`.
-6. Verify project availability and sign in/out for both accounts using a temporary local script with passwords supplied through secure prompts. Log pass/fail only. No account smoke test has run yet.
+6. Run the prepared temporary C:\Users\ibrah\AppData\Local\Temp\student-resource-hub-auth-check.ps1 in PowerShell. It prompts with Read-Host -AsSecureString, signs in/out for each account, and writes only email/pass-fail booleans to a temporary results JSON. No account smoke test has run yet.
 
 The publishable key is appropriate for browser code. Later resource-table RLS policies enforce row permissions.
 Never use a secret or service-role key in VITE_ variables or frontend files.
@@ -87,3 +87,5 @@ Account/team access is NOT VERIFIED. No project linked, repository imported, Git
 - https://github.github.io/spec-kit/installation.html
 - https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches
 - https://supabase.com/docs/guides/auth/users
+
+Local .env.local is configured with only the project URL and publishable key and is confirmed ignored by Git. Vercel whoami was rechecked and remains logged out.
