@@ -50,10 +50,10 @@ None was run. Next live action after setup: create the planning branch from late
 explicitly transition AGENTS.md to live-workshop mode, and invoke `$speckit-constitution`.
 Later each assigned implementation task gets its own ID, branch, PR, and human merge.
 
-## Supabase: blocked on dashboard access
+## Supabase: project verified; accounts and connection pending
 
-Dedicated free project requested: student-resource-hub. Do not use production.
-Dashboard sign-in is required; project creation/availability and connection are NOT VERIFIED.
+Dedicated project student-resource-hub verified in ibrahim97zak's Org (Free), region ap-northeast-1 (Tokyo), project ref zsenrarawfgnvlulvvbo. Database password was set privately by the instructor.
+Dashboard access and project identity are verified. Email authentication is enabled. Actual API connection and account sign-in/out are NOT VERIFIED.
 Prepared account emails: lina@example.com and omar@example.com. Neither account is verified or asserted created.
 
 Manual continuation if dashboard access remains unavailable:
