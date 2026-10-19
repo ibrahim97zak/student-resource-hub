@@ -6,7 +6,7 @@ Prepared for Ibrahim Zakarneh on 2026-10-20 (Asia/Hebron).
 
 Path: `C:\Users\ibrah\Downloads\SED-SPEC`
 Repository: https://github.com/ibrahim97zak/student-resource-hub (public).
-No setup PR yet. Main protection is pending the initial bootstrap push.
+Bootstrap commit 086bb15 is pushed to main. This follow-up handoff is delivered through a setup PR; human review/merge is required.
 
 Windows 10.0.26300, PowerShell 7.6.5, Node 24.15.0, npm 11.12.1,
 uv 0.10.7, GitHub CLI 2.83.2, Vercel CLI 64.7.0.
@@ -73,11 +73,11 @@ No resources table, resource migrations, RLS policies, or app auth flow has been
 Saved GitHub keyring account ibrahim97zak is accessible. An invalid GITHUB_TOKEN environment override
 was omitted only in setup command processes; no credentials were printed or committed.
 Public repository supports branch protection on GitHub Free.
-Bootstrap push and effective protection readback are pending; do not claim enforcement before readback.
-Required target: PRs for main including administrators, zero required approvals for solo presenter,
+Bootstrap push completed. Effective protection was read back successfully through the GitHub API.
+Verified: PRs for main including administrators, zero required approvals for solo presenter,
 no status checks, no force pushes/deletion, no auto-merge. No CI workflows.
 
-Vercel CLI installed persistently. Initial whoami reported logged out; normal login flow pending.
+Vercel CLI installed persistently. Initial whoami reported logged out; normal device login flow was started and awaits user completion.
 Account/team access is NOT VERIFIED. No project linked, repository imported, Git connection, hook, or deployment created.
 
 ## Official references
