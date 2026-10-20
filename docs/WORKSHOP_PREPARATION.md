@@ -6,7 +6,7 @@ Prepared for Ibrahim Zakarneh on 2026-10-20 (Asia/Hebron).
 
 Path: `C:\Users\ibrah\Downloads\SED-SPEC`
 Repository: https://github.com/ibrahim97zak/student-resource-hub (public).
-No setup PR yet. Main protection is pending the initial bootstrap push.
+Bootstrap commit 086bb15 is pushed to main. This follow-up handoff is delivered through a setup PR; human review/merge is required.
 
 Windows 10.0.26300, PowerShell 7.6.5, Node 24.15.0, npm 11.12.1,
 uv 0.10.7, GitHub CLI 2.83.2, Vercel CLI 64.7.0.
@@ -50,11 +50,11 @@ None was run. Next live action after setup: create the planning branch from late
 explicitly transition AGENTS.md to live-workshop mode, and invoke `$speckit-constitution`.
 Later each assigned implementation task gets its own ID, branch, PR, and human merge.
 
-## Supabase: blocked on dashboard access
+## Supabase: project, connection, and confirmed accounts verified
 
-Dedicated free project requested: student-resource-hub. Do not use production.
-Dashboard sign-in is required; project creation/availability and connection are NOT VERIFIED.
-Prepared account emails: lina@example.com and omar@example.com. Neither account is verified or asserted created.
+Dedicated project student-resource-hub verified in ibrahim97zak's Org (Free), region ap-northeast-1 (Tokyo), project ref zsenrarawfgnvlulvvbo. Database password was set privately by the instructor.
+Dashboard access and project identity are verified. Email authentication is enabled. Auth settings endpoint returned HTTP 200 using the publishable key and confirmed email provider enabled. Account password sign-in/out are NOT VERIFIED.
+Prepared account emails: lina@example.com and omar@example.com. Both accounts were verified in the authenticated dashboard with Confirmed at timestamps (Lina 00:26, Omar 00:27 on 2026-10-20). Neither had signed in at inspection.
 
 Manual continuation if dashboard access remains unavailable:
 1. Sign in at https://supabase.com/dashboard and select the intended Free organization.
@@ -62,7 +62,7 @@ Manual continuation if dashboard access remains unavailable:
 3. Under Authentication > Sign In / Providers, verify Email/password is enabled.
 4. Under Authentication > Users > Add user > Create new user, create each demo email with its own strong password entered privately; enable Auto Confirm User. Use Create, not Invite, to avoid email delivery.
 5. In the project's Connect/API settings, copy the project URL and publishable key into ignored `.env.local`, using only VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY as shown in `.env.example`.
-6. Verify project availability and sign in/out for both accounts using a temporary local script with passwords supplied through secure prompts. Log pass/fail only. No account smoke test has run yet.
+6. Run the prepared temporary C:\Users\ibrah\AppData\Local\Temp\student-resource-hub-auth-check.ps1 in PowerShell. It prompts with Read-Host -AsSecureString, signs in/out for each account, and writes only email/pass-fail booleans to a temporary results JSON. No account smoke test has run yet.
 
 The publishable key is appropriate for browser code. Later resource-table RLS policies enforce row permissions.
 Never use a secret or service-role key in VITE_ variables or frontend files.
@@ -73,11 +73,11 @@ No resources table, resource migrations, RLS policies, or app auth flow has been
 Saved GitHub keyring account ibrahim97zak is accessible. An invalid GITHUB_TOKEN environment override
 was omitted only in setup command processes; no credentials were printed or committed.
 Public repository supports branch protection on GitHub Free.
-Bootstrap push and effective protection readback are pending; do not claim enforcement before readback.
-Required target: PRs for main including administrators, zero required approvals for solo presenter,
+Bootstrap push completed. Effective protection was read back successfully through the GitHub API.
+Verified: PRs for main including administrators, zero required approvals for solo presenter,
 no status checks, no force pushes/deletion, no auto-merge. No CI workflows.
 
-Vercel CLI installed persistently. Initial whoami reported logged out; normal login flow pending.
+Vercel CLI installed persistently. Initial whoami reported logged out; normal device login flow was started and awaits user completion.
 Account/team access is NOT VERIFIED. No project linked, repository imported, Git connection, hook, or deployment created.
 
 ## Official references
@@ -87,3 +87,5 @@ Account/team access is NOT VERIFIED. No project linked, repository imported, Git
 - https://github.github.io/spec-kit/installation.html
 - https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches
 - https://supabase.com/docs/guides/auth/users
+
+Local .env.local is configured with only the project URL and publishable key and is confirmed ignored by Git. Vercel whoami was rechecked and remains logged out.
