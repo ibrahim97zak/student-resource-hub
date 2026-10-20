@@ -11,6 +11,12 @@ search all resources, filter by topic, and manage only their own resources. Sign
 visitors cannot access resources. This version excludes registration, password recovery,
 uploads, comments, votes, notifications, real-time updates, and duplicate-link detection.
 
+## Clarifications
+
+### Session 2026-10-20
+
+- Q: Must invalid resource data also be rejected when someone bypasses the form and submits it directly? → A: Reject invalid data from both forms and direct requests.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Sign In and Browse Resources (Priority: P1)
@@ -71,6 +77,10 @@ sign in as B to verify the saved resource is visible without testing editing or 
    simultaneous submission is initiated and the pending state is visible.
 8. **Given** a creation request that names a different owner, **When** A submits it,
    **Then** it cannot create a resource owned by another student.
+9. **Given** a signed-in student bypassing the form, **When** they directly submit a create
+   or update with a blank/overlong title, invalid link, unsupported/missing topic, or overlong
+   description, **Then** the same validation rules reject the request, no invalid resource
+   is stored, and an existing resource remains unchanged after a rejected update.
 
 ---
 
@@ -195,6 +205,10 @@ editing/deletion, cancellation, failure handling, and attempted unauthorized cha
   horizontal page scrolling.
 - **FR-019**: Registration, password recovery, uploads, comments, votes, notifications,
   real-time updates, and duplicate-link detection MUST remain outside this version.
+- **FR-020**: Resource validation rules in FR-007 through FR-010 MUST apply to both form
+  submissions and direct create/update requests that bypass the form. Invalid requests
+  MUST NOT create a resource or change an existing resource. Form validation alone MUST
+  NOT be the only protection against storing invalid data.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -221,6 +235,8 @@ editing/deletion, cancellation, failure handling, and attempted unauthorized cha
   intersection in newest-first order.
 - **SC-004**: Every validation boundary and failed-save acceptance check gives an
   understandable error, reports no false success, and preserves entered form values.
+  Direct create/update attempts using invalid resource data MUST also be rejected in
+  every tested validation case without creating or changing a stored resource.
 - **SC-005**: Every successfully confirmed create, edit, and delete in the two-account
   walkthrough remains reflected after refresh and the other student's next list load.
 - **SC-006**: A student can complete sign-in, search/filter, create, edit, confirmation
