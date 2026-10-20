@@ -7,7 +7,7 @@
 Presenter: Ibrahim Zakarneh.
 
 - The current stage is live planning, explicitly authorized by the instructor. Reviewed Spec Kit planning steps are allowed. App implementation must wait until the planning PR merges and the instructor assigns a delivery task.
-- Keep the constitution as a placeholder until the next explicit constitution skill call. Do not execute planning skills merely because live planning is now allowed.
+- Follow `.specify/memory/constitution.md`, created by the explicit constitution skill call. Do not execute other planning skills merely because live planning is now allowed.
 - Keep planning document changes on the planning branch for a human-reviewed planning PR against main.
 - Every later implementation task uses its own task ID, branch, and PR against main.
 - Start from the latest main after the previous task PR merges.
@@ -21,3 +21,11 @@ Presenter: Ibrahim Zakarneh.
 - The initial starter commit/push before protection is the bootstrap exception. It does not waive the later planning/task PR workflow.
 - Manage task branches explicitly. Do not enable Spec Kit automatic Git branch management.
 - Stack: React, Vite, TypeScript, plain CSS, Supabase Auth/Postgres. Preserve the npm lockfile, Oxlint, persistent Spec Kit 1.2.3.dev0, Codex integration, and PowerShell scripts. Auth UI, feature client, queries, forms, resource schema, migrations, and RLS require the approved planning PR and an assigned implementation task.
+
+## Product quality and task evidence
+
+- Keep implementation small, readable, easy to explain, and consistent with the approved specification and existing conventions. Add only dependencies the app needs.
+- Provide clear validation and applicable loading, empty, error, and success states. Preserve keyboard accessibility, visible focus, and responsive layouts.
+- Enforce data ownership through Supabase database policies and RLS, not only hidden buttons or client checks.
+- Include progress updates in that task's PR. Do not mark unfinished work complete; main reflects completion only after the PR merges. Verify the merge before beginning the next task.
+- Never commit passwords, private keys, credentials, or local environment files.
