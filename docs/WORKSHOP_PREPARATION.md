@@ -6,10 +6,10 @@ Prepared for Ibrahim Zakarneh on 2026-10-20 (Asia/Hebron).
 
 Path: `C:\Users\ibrah\Downloads\SED-SPEC`
 Repository: https://github.com/ibrahim97zak/student-resource-hub (public).
-Bootstrap commit 086bb15 is pushed to main. This follow-up handoff is delivered through a setup PR; human review/merge is required.
+Setup PR #1 is merged: https://github.com/ibrahim97zak/student-resource-hub/pull/1 (merge commit a45ac848748ef6df5fa1f231874c2aee583f2996). GitHub merge status was verified on 2026-10-20.
 
 Windows 10.0.26300, PowerShell 7.6.5, Node 24.15.0, npm 11.12.1,
-uv 0.10.7, GitHub CLI 2.83.2, Vercel CLI 64.7.0.
+uv 0.10.7, GitHub CLI 2.83.2. Hosting target: Render Static Sites; Supabase remains the backend.
 Specify CLI was upgraded persistently with uv from official github/spec-kit:
 1.2.3.dev0, source commit f68ffcab37a253d42a226bc9bcf4fef451efa38c,
 managed Python 3.14.3. The WindowsApps `python` alias does not run; Specify's own managed Python works.
@@ -46,29 +46,22 @@ Verified local skill directories under `.agents/skills` expose these live invoca
 - `$speckit-implement`
 - `$speckit-converge`
 
-None was run. Next live action after setup: create the planning branch from latest main,
-explicitly transition AGENTS.md to live-workshop mode, and invoke `$speckit-constitution`.
+No Spec Kit workflow skill has run. The instructor has explicitly authorized live planning in AGENTS.md. Keep the constitution as a placeholder until the next explicit `$speckit-constitution` call. Implementation must wait until the planning PR merges and the instructor assigns a delivery task.
 Later each assigned implementation task gets its own ID, branch, PR, and human merge.
 
 ## Supabase: project, connection, and confirmed accounts verified
 
 Dedicated project student-resource-hub verified in ibrahim97zak's Org (Free), region ap-northeast-1 (Tokyo), project ref zsenrarawfgnvlulvvbo. Database password was set privately by the instructor.
-Dashboard access and project identity are verified. Email authentication is enabled. Auth settings endpoint returned HTTP 200 using the publishable key and confirmed email provider enabled. Account password sign-in/out are NOT VERIFIED.
-Prepared account emails: lina@example.com and omar@example.com. Both accounts were verified in the authenticated dashboard with Confirmed at timestamps (Lina 00:26, Omar 00:27 on 2026-10-20). Neither had signed in at inspection.
+Dashboard access and project identity are verified. Email authentication is enabled. Auth settings endpoint returned HTTP 200 using the publishable key and confirmed email provider enabled. The redacted temporary test-results JSON was inspected: both prepared accounts report signIn=true and signOut=true. These are results of the instructor-run local smoke test; it was not rerun during this documentation update.
+Prepared account emails: lina@example.com and omar@example.com. Both accounts were verified in the authenticated dashboard with Confirmed at timestamps (Lina 00:26, Omar 00:27 on 2026-10-20). That dashboard inspection preceded the later successful sign-in/sign-out test.
 
-Manual continuation if dashboard access remains unavailable:
-1. Sign in at https://supabase.com/dashboard and select the intended Free organization.
-2. Create project student-resource-hub on the free tier; choose a suitable region and set the database password privately. Do not accept a paid upgrade.
-3. Under Authentication > Sign In / Providers, verify Email/password is enabled.
-4. Under Authentication > Users > Add user > Create new user, create each demo email with its own strong password entered privately; enable Auto Confirm User. Use Create, not Invite, to avoid email delivery.
-5. In the project's Connect/API settings, copy the project URL and publishable key into ignored `.env.local`, using only VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY as shown in `.env.example`.
-6. Run the prepared temporary C:\Users\ibrah\AppData\Local\Temp\student-resource-hub-auth-check.ps1 in PowerShell. It prompts with Read-Host -AsSecureString, signs in/out for each account, and writes only email/pass-fail booleans to a temporary results JSON. No account smoke test has run yet.
+Evidence: the redacted results file at `C:\Users\ibrah\AppData\Local\Temp\student-resource-hub-auth-results.json` contains only the account emails and sign-in/sign-out booleans. Accounts were not recreated, and passwords were not inspected.
 
 The publishable key is appropriate for browser code. Later resource-table RLS policies enforce row permissions.
 Never use a secret or service-role key in VITE_ variables or frontend files.
 No resources table, resource migrations, RLS policies, or app auth flow has been created.
 
-## GitHub and Vercel
+## GitHub and Render
 
 Saved GitHub keyring account ibrahim97zak is accessible. An invalid GITHUB_TOKEN environment override
 was omitted only in setup command processes; no credentials were printed or committed.
@@ -77,8 +70,19 @@ Bootstrap push completed. Effective protection was read back successfully throug
 Verified: PRs for main including administrators, zero required approvals for solo presenter,
 no status checks, no force pushes/deletion, no auto-merge. No CI workflows.
 
-Vercel CLI installed persistently. Initial whoami reported logged out; normal device login flow was started and awaits user completion.
-Account/team access is NOT VERIFIED. No project linked, repository imported, Git connection, hook, or deployment created.
+Render Static Sites is the frontend hosting target. Supabase remains the backend.
+Render source-repository connection is allowed, but Auto-Deploy must be Off and PR previews disabled.
+Render account/workspace access and all deployment settings are currently UNVERIFIED. These are requirements, not confirmed settings.
+No Render Static Site has been created or deployed by this setup. Do not create/deploy one during planning.
+No CI/CD or deploy hooks. Manual deployment requires an explicit later request.
+
+## Live planning transition and branch verification
+
+AGENTS.md now permits reviewed Spec Kit planning. Keep these changes for the planning PR; human review and merge remain required.
+Each later assigned delivery task uses its own branch and PR from latest main after the previous merge.
+Before this planning branch was created, the two document edits were temporarily preserved, local main was fast-forwarded to origin/main at `a45ac848748ef6df5fa1f231874c2aee583f2996`, and `docs/live-planning-transition` was created from that synchronized main. The document edits were then restored without conflicts; existing history was preserved.
+These documentation changes are delivered through the planning transition PR for human review and merge.
+No implementation task IDs were created; no planning skill, account smoke test, build, or lint was rerun for this documentation-only update.
 
 ## Official references
 
@@ -88,4 +92,4 @@ Account/team access is NOT VERIFIED. No project linked, repository imported, Git
 - https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches
 - https://supabase.com/docs/guides/auth/users
 
-Local .env.local is configured with only the project URL and publishable key and is confirmed ignored by Git. Vercel whoami was rechecked and remains logged out.
+Local .env.local is configured with only the project URL and publishable key and is confirmed ignored by Git. Render access remains unverified.
